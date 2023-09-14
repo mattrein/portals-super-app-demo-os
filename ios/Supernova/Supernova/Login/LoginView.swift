@@ -9,57 +9,25 @@ import SwiftUI
 import Supabase
 import ComposableArchitecture
 import Dependencies
+import IonicPortals
 
 struct LoginView: View {
     let store: StoreOf<LoginFeature>
 
+    func create(
+        saveOSAuth: @escaping (_ storage: String) async -> Void
+    ) -> Portal {
+        return Portal(name: "time", startDir: "portals/time").adding(Auth(saveOSAuth: saveOSAuth))
+    }
+    // Move to extension on Portal static func
+
     var body: some View {
         WithViewStore(store) { vs in
-            VStack {
-                LoginLogo()
-                    .padding([.top], 60)
-                    .padding([.bottom], 64)
-
-                VStack(alignment: .leading) {
-                    Text("Log in")
-                        .font(.system(size: 34, weight: .bold, design: .default))
-
-                    LoginPair(
-                        email: vs.binding(
-                            get: \.email,
-                            send: LoginFeature.Action.setEmail
-                        ),
-                        password: vs.binding(
-                            get: \.password,
-                            send: LoginFeature.Action.setPassword
-                        )
-                    )
-
-                    Button {
-                        vs.send(.login, animation: .linear)
-                    } label: {
-                        Group {
-                            switch vs.loginStatus {
-                            case .inProcess:
-                                ProgressView()
-                                    .tint(.white)
-                            default:
-                                Text("Login")
-                            }
-                        }
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 35)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.superPrimary)
-                    .padding([.top], 32)
-                    .font(.system(size: 17, weight: .semibold, design: .rounded))
+            PortalView(
+                portal: create { @MainActor storage in
+                    vs.send(.saveOSAuth(storage))
                 }
-                .padding([.leading, .trailing], 32)
-
-                Spacer()
-            }
-        }
+            ) { $0.webView?.isInspectable = true }        }
     }
 }
 

@@ -36,6 +36,7 @@ struct LoginFeature: ReducerProtocol {
         case loginFailed
         case logout
         case useCurrentSessionIfAvailable
+        case saveOSAuth(String)
     }
 
     var body: some ReducerProtocolOf<Self> {
@@ -84,6 +85,17 @@ struct LoginFeature: ReducerProtocol {
                     }
 
                     await send(.loginSucceeded(sessionToken: session.accessToken, refreshToken: session.refreshToken))
+                }
+
+            case .saveOSAuth(let storage):
+                print(storage)
+                // Login succeeded
+                // Set credentials (accessToken, refreshToken = storage)
+                return .run {send in
+                    do {
+                        let (sessionToken, refreshToken) = try await signin("jeremiah@supernova.com", "il0vedogs")
+                        await send(.loginSucceeded(sessionToken: sessionToken, refreshToken: storage))
+                    }
                 }
             }
         }

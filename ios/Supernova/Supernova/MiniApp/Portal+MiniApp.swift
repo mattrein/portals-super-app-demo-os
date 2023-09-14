@@ -62,3 +62,27 @@ private class Dismiss: CAPInstancePlugin, CAPBridgedPlugin {
         }
     }
 }
+
+public class Auth: CAPInstancePlugin, CAPBridgedPlugin {
+    public let jsName = "Auth"
+    public let identifier = "Auth"
+    public let pluginMethods: [CAPPluginMethod] = [
+        .init(name: "save", returnType: CAPPluginReturnPromise)
+    ]
+
+    private let _saveOSAuth: (_ storage: String) async -> Void
+
+    init(saveOSAuth: @escaping (_ storage: String) async -> Void) {
+        _saveOSAuth = saveOSAuth
+        super.init()
+    }
+
+    @objc func save(_ call: CAPPluginCall) {
+        Task.detached { [weak self] in
+            await self?._saveOSAuth(call.getString("accessToken")!)
+            print("Save Auth")
+            // print(call.getString("accessToken"))
+            call.resolve()
+        }
+    }
+}
