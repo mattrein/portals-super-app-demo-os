@@ -1,0 +1,9 @@
+{
+  "appId": "io.ionic.timetracking",
+  "appName": "time-tracking",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "url": "https://ubt-odc-dev.outsystems.app/SuperappLogin/"
+  }
+}

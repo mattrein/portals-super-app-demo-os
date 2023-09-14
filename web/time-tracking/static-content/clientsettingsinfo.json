@@ -1,0 +1,13 @@
+{
+    "clientSettings": {
+        "CanDisableAutoUpgrade": "false",
+        "EnableOpenTelemetryTraces": "false",
+        "EnvironmentKey": "77a10826-1535-46c8-a5f8-9f605a868eb4",
+        "ForceXhrCommunication": "false",
+        "IndexedDBOffline": "true",
+        "LogLevel": "Information",
+        "LoggerApiKey": "JDJhJDEwJE5keU5DWWdOODBjSC4yQXFzQXlYYU9aNEY0VUQ1RTR5d1dmbHNpNGlhbFVBdnFYUjZNdDlH",
+        "TenantID": "48022ced-b160-45b1-ac64-a02988811171"
+    },
+    "clientSettingsHash": "6923A9310535AE03F4C0565668E18BAA960E028CB6AF0F3D6C90DEDE47E26D27B15B9E96D1DFF7596B8ABE596C418895F6248C09FEC7141B722920661F77506F"
+}

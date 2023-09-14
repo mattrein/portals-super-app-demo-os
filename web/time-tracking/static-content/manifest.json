@@ -1,0 +1,35 @@
+{
+    "name": "Superapp Login",
+    "short_name": "Superapp Login",
+    "start_url": "/SuperappLogin/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "description": "",
+    "theme_color": "#59ABE3",
+    "icons": [
+        {
+            "src": "/SuperappLogin/img/SuperappLogin.AppLogo.48.png",
+            "type": "image/png",
+            "sizes": "48x48",
+            "purpose": "any"
+        },
+        {
+            "src": "/SuperappLogin/img/SuperappLogin.AppLogo.96.png",
+            "type": "image/png",
+            "sizes": "96x96",
+            "purpose": "any"
+        },
+        {
+            "src": "/SuperappLogin/img/SuperappLogin.AppLogo.192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "any"
+        },
+        {
+            "src": "/SuperappLogin/img/SuperappLogin.AppLogo.512.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        }
+    ]
+}

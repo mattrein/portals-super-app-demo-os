@@ -4,6 +4,6 @@
   "webDir": "dist",
   "server": {
     "androidScheme": "https",
-    "url": "https://one23-dev.outsystems.app/PerksApp/Perks"
+    "url": "https://ubt-odc-dev.outsystems.app/MiniAppB/"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "appId": "io.ionic.humanresources",
+  "appName": "human-resources",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "url": "https://ubt-odc-dev.outsystems.app/MiniAppA/"
+  }
+}
